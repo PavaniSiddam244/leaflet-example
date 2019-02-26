@@ -6,6 +6,13 @@ export default class Header extends Component {
     latitude: '',
     longitude: '',
   }
+  handleClick = (e) => {
+    e.preventDefault();
+    this.props.setMarker({
+      latitude: this.state.latitude,
+      longitude: this.state.longitude,
+    });
+  }
   render() {
     return (
       <Navbar className="bg-light justify-content-between">
@@ -24,10 +31,7 @@ export default class Header extends Component {
             value={this.state.longitude}  
             onChange={e => this.setState({longitude: e.target.value})} 
           />
-          <Button type="submit" onClick={() => this.props.setMarker({
-            latitude: this.state.latitude,
-            longitude: this.state.longitude,
-          })}>Submit</Button>
+          <Button type="submit" onClick={this.handleClick}>Submit</Button>
         </Form>
       </Navbar>
     );
