@@ -25,7 +25,7 @@ class App extends PureComponent {
     return (
       <div className="App"style={{textAlign: "left"}}>
         <Header setMarker={this.setMarker} />
-        <LeafletMap markers={this.state.markers} />
+        <LeafletMap markers={this.state.markers} setMarker={this.setMarker} />
       </div>
     );
   }
